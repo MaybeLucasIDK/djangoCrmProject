@@ -1,0 +1,43 @@
+{% extends "webapp/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<body>
+  
+  <div class="container bg-light p-5 mt-5 rounded shadow-md p-5 form-layout">
+  
+    
+      
+        <h3> Login if already registered </h3>
+  
+        <hr style="border: 1px solid #000;">
+        <br>
+  
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+  
+            {{ form | crispy }} 
+  
+            <br>
+            <div style="text-align: center; width: 100%;">
+            <button type="submit" class="btn btn-primary"> Login </button>
+            
+            </div>
+             <small> By clicking the button above, you agree to our terms of service and privacy policy. </small>
+        </form>
+  
+        <br>
+  
+        <div class="text-center">
+            <a href="{% url 'register' %}"> Don't have an account? Register here </a>
+  
+        </div>
+  
+    </div>
+  
+  </body>
+
+
+{% endblock %}
